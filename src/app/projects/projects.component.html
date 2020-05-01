@@ -1,0 +1,13 @@
+<div class="example-container mat-elevation-z8">
+    <div class="example-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="mat-elevation-z8">
+
+        <mat-grid-list cols="2">
+            <mat-grid-tile *ngFor="let o of data" [colspan]="1" [rowspan]="1">
+                <app-project-summary [data]="o"></app-project-summary>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>
