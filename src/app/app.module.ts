@@ -29,6 +29,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { HomeComponent } from './home/home.component';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     MatGridListModule,
     MatMenuModule,
     MatCarouselModule.forRoot(),
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,10 +4,14 @@
     </div>
     <div class="mat-elevation-z8">
 
-        <mat-grid-list cols="2">
-            <mat-grid-tile *ngFor="let o of data" [colspan]="1" [rowspan]="1">
-                <app-project-summary [data]="o"></app-project-summary>
-            </mat-grid-tile>
-        </mat-grid-list>
+        <div class="container">
+            <div class="row">
+                <div *ngFor="let o of data" class="col-6">
+                    <app-project-summary [data]="o"></app-project-summary>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </div>

@@ -4,7 +4,7 @@ import { Project } from '../models/project';
 @Component({
   selector: 'app-project-summary',
   templateUrl: './project-summary.component.html',
-  styleUrls: ['./project-summary.component.less']
+  styleUrls: ['./project-summary.component.scss']
 })
 export class ProjectSummaryComponent implements OnInit {
 
