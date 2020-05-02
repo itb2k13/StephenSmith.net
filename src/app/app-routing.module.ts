@@ -11,9 +11,14 @@ const routes: Routes = [
     data: { title: 'List of Projects' }
   },
   {
-    path: 'projects',
+    path: 'projects/personal',
     component: ProjectsComponent,
-    data: { title: 'List of Projects' }
+    data: { projectType: 'Personal' }
+  },
+  {
+    path: 'projects/commercial',
+    component: ProjectsComponent,
+    data: { projectType: 'Commercial' }
   },
   {
     path: 'project-details/:id',

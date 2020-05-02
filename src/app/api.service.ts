@@ -7,17 +7,18 @@ import { Project } from './models/project';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-const apiUrl = 'https://sjsapi.azurewebsites.net/api/projects/';
+const apiUrl = 'https://sjsapi.azurewebsites.net/api/projects';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>(`${apiUrl}`)
+  getProjects(projectType: string): Observable<Project[]> {
+    return this.http.get<Project[]>(`${apiUrl}/${projectType}`)
       .pipe(
         tap(cases => console.log('fetched cases')),
         catchError(this.handleError('getCases', []))
