@@ -13,12 +13,12 @@ const routes: Routes = [
   {
     path: 'projects/personal',
     component: ProjectsComponent,
-    data: { projectType: 'Personal' }
+    data: { section: 'projects', contentpath: 'personal' }
   },
   {
     path: 'projects/commercial',
     component: ProjectsComponent,
-    data: { projectType: 'Commercial' }
+    data: { section: 'projects', contentpath: 'commercial' }
   },
   {
     path: 'project-details/:id',

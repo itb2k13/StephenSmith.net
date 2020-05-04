@@ -1,19 +1,18 @@
 <!--Navbar-->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue-gradient">
 
     <!-- Navbar brand -->
-    <mdb-navbar-brand><a class="navbar-brand" href="#">Navbar</a></mdb-navbar-brand>
+    <mdb-navbar-brand>
+        <a class="navbar-brand" [routerLink]="['/']">
+            <i class="fa fa-2x fa-home"></i>
+        </a>
+    </mdb-navbar-brand>
 
     <!-- Collapsible content -->
     <links>
 
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link waves-light" [routerLink]="['/']" mdbWavesEffect>
-                    <span>Home</span>
-                </a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link waves-light" [routerLink]="['/projects/personal']" mdbWavesEffect>
                 Personal Projects

@@ -1,0 +1,32 @@
+<!--Grid row-->
+<div class="row text-center">
+
+    <!--Grid column-->
+    <div *ngFor="let o of data.projects" class="col-lg-4 col-md-12 mb-4">
+
+        <!--Featured image-->
+        <div class="view overlay rounded z-depth-1 waves-light" mdbWavesEffect>
+            <img src="{{o.media[0].url}}" class="img-fluid" alt="{{o.media[0].title}}">
+            <a>
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+        <!--Excerpt-->
+        <mdb-card-body class="mt-3">
+            <h4>
+                <strong>{{o.title}}</strong>
+            </h4>
+            <p class="grey-text">{{o.description}}
+            </p>
+            <a mdbBtn color="indigo" size="sm" class="waves-light" mdbWavesEffect>
+                <mdb-icon far icon="clone" class="left"></mdb-icon> View project</a>
+        </mdb-card-body>
+
+    </div>
+    <!--Grid column-->
+
+
+
+</div>
+<!--Grid row-->

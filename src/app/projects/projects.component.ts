@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Project } from '../models/project';
+import { ContentSection, Media } from '../models/project';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,26 +10,27 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProjectsComponent implements OnInit {
 
-  displayedColumns: string[] = ['title', 'description'];
-  data: Project[] = [];
+  data: ContentSection = new ContentSection();
   isLoadingResults = true;
-  projectType: string;
+  section: string;
+  contentpath: string;
 
-  constructor(private api: ApiService, private activatedRoute: ActivatedRoute) { }
+  constructor(private api: ApiService, private activatedRoute: ActivatedRoute) {
+    this.data.backgroundImage = new Media();
+  }
 
   ngOnInit(): void {
 
     this.activatedRoute.data.subscribe(data => {
-      this.projectType = data.projectType;
+      this.section = data.section;
+      this.contentpath = data.contentpath;
     });
 
-    this.api.getProjects(this.projectType)
+    this.api.getContent(this.section, this.contentpath)
       .subscribe((res: any) => {
         this.data = res;
-        console.log(this.data);
         this.isLoadingResults = false;
       }, err => {
-        console.log(err);
         this.isLoadingResults = false;
       });
   }

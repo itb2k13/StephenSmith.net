@@ -31,6 +31,8 @@ import { HomeComponent } from './home/home.component';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FooterComponent } from './footer/footer.component';
+import { ContentSectionComponent } from './content-section/content-section.component';
+import { ContentTilesComponent } from './content-tiles/content-tiles.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { FooterComponent } from './footer/footer.component';
     ProjectSummaryComponent,
     TopMenuComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    ContentSectionComponent,
+    ContentTilesComponent
   ],
   imports: [
     BrowserModule,

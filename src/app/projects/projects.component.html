@@ -2,8 +2,4 @@
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
 </div>
 
-<div class="row no-gutters">
-    <div *ngFor="let o of data" class="col-12 col-md-6 col-xl-4 mb-1">
-        <app-project-summary class="h-100" [data]="o"></app-project-summary>
-    </div>
-</div>
+<app-content-section [data]="data"></app-content-section>

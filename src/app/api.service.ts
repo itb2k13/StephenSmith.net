@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
-import { Project } from './models/project';
+import { Project, ContentSection } from './models/project';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-const apiUrl = 'https://sjsapi.azurewebsites.net/api/projects';
+const apiUrl = 'https://sjsapi.azurewebsites.net/api/contents';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +17,11 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getProjects(projectType: string): Observable<Project[]> {
-    return this.http.get<Project[]>(`${apiUrl}/${projectType}`)
+  getContent(section: string, contentpath: string): Observable<ContentSection> {
+    return this.http.get<ContentSection>(`${apiUrl}/${section}/${contentpath}`)
       .pipe(
         tap(cases => console.log('fetched cases')),
-        catchError(this.handleError('getCases', []))
+        catchError(this.handleError('getCases', null))
       );
   }
 

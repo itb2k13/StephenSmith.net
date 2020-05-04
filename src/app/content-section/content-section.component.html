@@ -1,0 +1,27 @@
+<img class="position-absolute w-100 h-100 blur-50px" src="{{data.backgroundImage.url}}" />
+<mdb-card style="background-color: unset;">
+    <div class="text-center text-white py-5 px-4 my-5">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">{{data.title}}</h1>
+                <p class="lead">{{data.subtitle}}</p>
+
+                <!--Projects section v.1-->
+                <section>
+
+                    <!--Section heading-->
+                    <h2 class="text-center h1 py-5">
+                        <strong>{{data.heading}}</strong>
+                    </h2>
+
+                    <!--Section description-->
+                    <p class="grey-text pb-5 text-center">{{data.description}}</p>
+
+                    <app-content-tiles [data]="data"></app-content-tiles>
+
+                </section>
+                <!--/Projects section v.1-->
+            </div>
+        </div>
+    </div>
+</mdb-card>

@@ -19,3 +19,13 @@ export class Project {
   references: Reference[];
   media: Media[];
 }
+
+export class ContentSection {
+  _id: string;
+  backgroundImage: Media;
+  title: string;
+  subtitle: string;
+  heading: string;
+  description: string;
+  projects: Project[];
+}
