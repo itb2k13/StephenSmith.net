@@ -33,6 +33,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FooterComponent } from './footer/footer.component';
 import { ContentSectionComponent } from './content-section/content-section.component';
 import { ContentTilesComponent } from './content-tiles/content-tiles.component';
+import { ContentProviderComponent } from './content-provider/content-provider.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ContentTilesComponent } from './content-tiles/content-tiles.component';
     HomeComponent,
     FooterComponent,
     ContentSectionComponent,
-    ContentTilesComponent
+    ContentTilesComponent,
+    ContentProviderComponent
   ],
   imports: [
     BrowserModule,
