@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-content-provider',
   templateUrl: './content-provider.component.html',
-  styleUrls: ['./content-provider.component.less']
+  styleUrls: ['./content-provider.component.scss']
 })
 export class ContentProviderComponent implements OnInit {
 

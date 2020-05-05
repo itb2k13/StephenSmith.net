@@ -7,7 +7,7 @@
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
-                    "style": "less"
+                    "style": "scss"
                 }
             },
             "root": "",
@@ -52,6 +52,7 @@
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
+                            "resourcesOutputPath": "css",
                             "extractCss": true,
                             "namedChunks": false,
                             "extractLicenses": true,

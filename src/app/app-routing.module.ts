@@ -29,6 +29,11 @@ const routes: Routes = [
     path: 'project-details/:id',
     component: ProjectDetailsComponent,
     data: { title: 'Project Details' }
+  },
+  {
+    path: 'dissertations',
+    component: ContentProviderComponent,
+    data: { section: 'base', contentpath: 'dissertations' }
   }];
 
 @NgModule({

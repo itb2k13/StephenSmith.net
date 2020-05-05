@@ -21,3 +21,7 @@ body {
 .blur-50px {
     filter: blur(50px);
 }
+
+.orange-spinner circle {
+    stroke: orange !important;
+}
