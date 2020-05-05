@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.api.getContent('base', 'home')
-      .subscribe((res: any) => {
+      .subscribe((res: ContentSection) => {
         this.data = res;
       }, err => { });
   }

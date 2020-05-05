@@ -6,7 +6,10 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-.jumbotron {
+.bg-shadow-02 {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+.bg-shadow-05 {
   background-color: rgba(0, 0, 0, 0.5) !important;
 }
 .blur-50px {

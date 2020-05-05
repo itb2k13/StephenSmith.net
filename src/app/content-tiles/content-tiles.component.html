@@ -2,7 +2,7 @@
 <div class="row text-center">
 
     <!--Grid column-->
-    <div *ngFor="let o of data.projects" class="col-lg-4 col-md-12 mb-4">
+    <div *ngFor="let o of data.projects" class="col-lg-4 col-md-12 mb-4 ">
 
         <!--Featured image-->
         <div class="view overlay rounded z-depth-1 waves-light" mdbWavesEffect>
@@ -13,14 +13,17 @@
         </div>
 
         <!--Excerpt-->
-        <mdb-card-body class="mt-3">
+        <mdb-card-body class="bg-shadow-02 d-block">
             <h4>
                 <strong>{{o.title}}</strong>
             </h4>
             <p class="grey-text">{{o.description}}
             </p>
-            <a mdbBtn color="indigo" size="sm" class="waves-light" mdbWavesEffect>
-                <mdb-icon far icon="clone" class="left"></mdb-icon> View project</a>
+            <a *ngFor="let n of o.references" href="{{o.url}}" rel="noopener" target="_blank" mdbBtn color="indigo" size="sm" class="waves-light" mdbWavesEffect>
+                <mdb-icon fas icon="{{n.icon}}" class="left"></mdb-icon>
+                {{n.title}}
+            </a>
+
         </mdb-card-body>
 
     </div>
