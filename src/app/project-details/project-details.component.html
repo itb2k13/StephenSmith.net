@@ -40,9 +40,9 @@
 <!-- Jumbotron -->
 
 <!-- News jumbotron -->
-<div class="jumbotron text-center hoverable p-4">
+<div *ngFor="let o of data.features" class="jumbotron text-center hoverable p-4">
 
-    <app-project-feature [data]="data.features[0]"></app-project-feature>
+    <app-project-feature [data]="o"></app-project-feature>
 
 </div>
 <!-- News jumbotron -->

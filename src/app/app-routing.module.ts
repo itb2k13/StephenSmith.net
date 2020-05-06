@@ -28,12 +28,12 @@ const routes: Routes = [
   {
     path: 'projects/personal/:id',
     component: ProjectDetailsComponent,
-    data: { title: 'Project Details' }
+    data: { section: 'projects', contentpath: 'personal' }
   },
   {
-    path: 'dissertations',
+    path: 'academic',
     component: ContentProviderComponent,
-    data: { section: 'base', contentpath: 'dissertations' }
+    data: { section: 'base', contentpath: 'academic' }
   }];
 
 @NgModule({

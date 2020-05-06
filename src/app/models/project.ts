@@ -13,7 +13,7 @@ export class Media {
 export class Feature {
   title: string;
   image: Media;
-  featureset: string[];
+  featureSet: string[];
 }
 
 export class Project {

@@ -25,6 +25,14 @@ export class ApiService {
       );
   }
 
+  getProjectDetail(section: string, contentpath: string, projectTitle: string): Observable<Project> {
+    return this.http.get<Project>(`${apiUrl}/${section}/${contentpath}/${projectTitle}`)
+      .pipe(
+        tap(cases => console.log('fetched project details')),
+        catchError(this.handleError('getProjectDetail', null))
+      );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
