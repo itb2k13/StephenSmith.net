@@ -19,11 +19,18 @@
             </h4>
             <p class="grey-text">{{o.description}}
             </p>
-            <a *ngFor="let n of o.references" href="{{n.url}}" rel="noopener" target="_blank" mdbBtn color="indigo" size="sm" class="waves-light" mdbWavesEffect>
-                <mdb-icon fas icon="{{n.icon}}" class="left"></mdb-icon>
-                {{n.title}}
-            </a>
+            <span *ngFor="let n of o.references">
 
+                <a *ngIf="!n.link" href="{{n.url}}" rel="noopener" target="_blank" mdbBtn color="indigo" size="sm" class="waves-light" mdbWavesEffect>
+                    <mdb-icon fas icon="{{n.icon}}" class="left"></mdb-icon>
+                    {{n.title}}
+                </a>
+                <a *ngIf="n.link" [routerLink]="n.link" mdbBtn color="indigo" size="sm" class="waves-light" mdbWavesEffect>
+                    <mdb-icon fas icon="{{n.icon}}" class="left"></mdb-icon>
+                    {{n.title}}
+                </a>
+
+             </span>
         </mdb-card-body>
 
     </div>

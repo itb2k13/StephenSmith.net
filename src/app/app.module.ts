@@ -34,6 +34,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ContentSectionComponent } from './content-section/content-section.component';
 import { ContentTilesComponent } from './content-tiles/content-tiles.component';
 import { ContentProviderComponent } from './content-provider/content-provider.component';
+import { ProjectFeatureComponent } from './project-feature/project-feature.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ContentProviderComponent } from './content-provider/content-provider.co
     FooterComponent,
     ContentSectionComponent,
     ContentTilesComponent,
-    ContentProviderComponent
+    ContentProviderComponent,
+    ProjectFeatureComponent
   ],
   imports: [
     BrowserModule,

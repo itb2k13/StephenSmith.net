@@ -26,7 +26,7 @@ const routes: Routes = [
     data: { section: 'projects', contentpath: 'commercial' }
   },
   {
-    path: 'project-details/:id',
+    path: 'projects/personal/:id',
     component: ProjectDetailsComponent,
     data: { title: 'Project Details' }
   },

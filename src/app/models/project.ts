@@ -1,6 +1,7 @@
 export class Reference {
   title: string;
   url: string;
+  link: string;
   icon: string;
 }
 
@@ -9,6 +10,11 @@ export class Media {
   url: string;
 }
 
+export class Feature {
+  title: string;
+  image: Media;
+  featureset: string[];
+}
 
 export class Project {
   _id: string;
@@ -18,6 +24,7 @@ export class Project {
   icon: string;
   references: Reference[];
   media: Media[];
+  features: Feature[];
 }
 
 export class ContentSection {
