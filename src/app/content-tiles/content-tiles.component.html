@@ -6,8 +6,10 @@
 
         <!--Featured image-->
         <div class="view overlay rounded z-depth-1 waves-light" mdbWavesEffect>
+
             <img *ngIf="!o.icon" src="{{o.media[0].url}}" class="img-fluid" alt="{{o.media[0].title}}">
-            <mdb-icon *ngIf="o.icon" icon="{{o.icon.name}}" [ngClass]="o.icon.group" class="fa-3x {{o.icon.group}}"></mdb-icon>
+
+            <mdb-icon *ngIf="o.icon" icon="{{o.icon.name}}" [ngClass]="o.icon.group" class="fa-3x light-blue-text {{o.icon.group}}"></mdb-icon>
             <a>
                 <div class="mask rgba-white-slight"></div>
             </a>
@@ -23,13 +25,13 @@
             <span *ngFor="let n of o.references">
 
                 <!--External link-->
-                <a *ngIf="!n.link" href="{{n.url}}" rel="noopener" target="_blank" mdbBtn color="indigo" size="lg" class="waves-light" mdbWavesEffect>
+                <a *ngIf="!n.link" href="{{n.url}}" rel="noopener" target="_blank" mdbBtn color="" size="lg" class="waves-light d-block" mdbWavesEffect>
                     <mdb-icon icon="{{n.icon.name}}" [ngClass]="n.icon.group" class="left {{n.icon.group}} "></mdb-icon>
                     {{n.title}}
                 </a>
 
                 <!--Internal link-->
-                <a *ngIf="n.link" [routerLink]="n.link" mdbBtn color="indigo" size="lg" class="waves-light" mdbWavesEffect>
+                <a *ngIf="n.link" [routerLink]="n.link" mdbBtn color="" size="lg" class="waves-light d-block" mdbWavesEffect>
                     <mdb-icon icon="{{n.icon.name}}" [ngClass]="n.icon.group" class="left {{n.icon.group}} "></mdb-icon>
                     {{n.title}}
                 </a>

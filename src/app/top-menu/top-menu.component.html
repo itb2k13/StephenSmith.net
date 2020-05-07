@@ -23,16 +23,15 @@
               Commercial Projects
             </a>
             </li>
-
-            <!-- Dropdown -->
-            <li class="nav-item dropdown" dropdown>
-                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-              About<span class="caret"></span></a>
-                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-                    <a class="dropdown-item waves-light" [routerLink]="['/contact']" mdbWavesEffect href="#">Contact</a>
-                    <div class="divider dropdown-divider"></div>
-                    <a class="dropdown-item waves-light" [routerLink]="['/academic']" mdbWavesEffect href="#">Academic work</a>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link waves-light" [routerLink]="['/academic']" mdbWavesEffect>
+              Academic Projects
+            </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" [routerLink]="['/contact']" mdbWavesEffect>
+              Contact
+            </a>
             </li>
 
         </ul>
