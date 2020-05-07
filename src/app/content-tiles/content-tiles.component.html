@@ -6,7 +6,8 @@
 
         <!--Featured image-->
         <div class="view overlay rounded z-depth-1 waves-light" mdbWavesEffect>
-            <img src="{{o.media[0].url}}" class="img-fluid" alt="{{o.media[0].title}}">
+            <img *ngIf="!o.icon" src="{{o.media[0].url}}" class="img-fluid" alt="{{o.media[0].title}}">
+            <mdb-icon *ngIf="o.icon" icon="{{o.icon.name}}" [ngClass]="o.icon.group" class="fa-3x {{o.icon.group}}"></mdb-icon>
             <a>
                 <div class="mask rgba-white-slight"></div>
             </a>
@@ -21,12 +22,15 @@
             </p>
             <span *ngFor="let n of o.references">
 
-                <a *ngIf="!n.link" href="{{n.url}}" rel="noopener" target="_blank" mdbBtn color="indigo" size="sm" class="waves-light" mdbWavesEffect>
-                    <mdb-icon fas icon="{{n.icon}}" class="left"></mdb-icon>
+                <!--External link-->
+                <a *ngIf="!n.link" href="{{n.url}}" rel="noopener" target="_blank" mdbBtn color="indigo" size="lg" class="waves-light" mdbWavesEffect>
+                    <mdb-icon icon="{{n.icon.name}}" [ngClass]="n.icon.group" class="left {{n.icon.group}} "></mdb-icon>
                     {{n.title}}
                 </a>
-                <a *ngIf="n.link" [routerLink]="n.link" mdbBtn color="indigo" size="sm" class="waves-light" mdbWavesEffect>
-                    <mdb-icon fas icon="{{n.icon}}" class="left"></mdb-icon>
+
+                <!--Internal link-->
+                <a *ngIf="n.link" [routerLink]="n.link" mdbBtn color="indigo" size="lg" class="waves-light" mdbWavesEffect>
+                    <mdb-icon icon="{{n.icon.name}}" [ngClass]="n.icon.group" class="left {{n.icon.group}} "></mdb-icon>
                     {{n.title}}
                 </a>
 

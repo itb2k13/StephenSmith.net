@@ -1,8 +1,13 @@
+export class Icon {
+  name: string;
+  group: string;
+  color: string;
+}
 export class Reference {
   title: string;
   url: string;
   link: string;
-  icon: string;
+  icon: Icon;
 }
 
 export class Media {
@@ -21,7 +26,7 @@ export class Project {
   title: string;
   subtitle: string;
   description: string;
-  icon: string;
+  icon: Icon;
   references: Reference[];
   media: Media[];
   features: Feature[];
