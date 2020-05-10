@@ -2,14 +2,14 @@
 <div class="row text-center">
 
     <!--Grid column-->
-    <div *ngFor="let o of data.projects" class="col-lg-4 col-md-12 mb-4 ">
+    <div *ngFor="let o of data.Projects" class="col-lg-4 col-md-12 mb-4 ">
 
         <!--Featured image-->
         <div class="view overlay rounded z-depth-1 waves-light" mdbWavesEffect>
 
-            <img *ngIf="!o.icon" src="{{o.media[0].url}}" class="img-fluid" alt="{{o.media[0].title}}">
+            <img *ngIf="!o.Icon && o.Media" src="{{o.Media[0].Url}}" class="img-fluid" alt="{{o.Media[0].Title}}">
 
-            <mdb-icon *ngIf="o.icon" icon="{{o.icon.name}}" [ngClass]="o.icon.group" class="fa-3x light-blue-text {{o.icon.group}}"></mdb-icon>
+            <mdb-icon *ngIf="o.Icon" icon="{{o.Icon.Name}}" [ngClass]="o.Icon.Group" class="fa-3x light-blue-text {{o.Icon.Group}}"></mdb-icon>
             <a>
                 <div class="mask rgba-white-slight"></div>
             </a>
@@ -18,22 +18,22 @@
         <!--Excerpt-->
         <mdb-card-body class="bg-shadow-02 d-block">
             <h4>
-                <strong>{{o.title}}</strong>
+                <strong>{{o.Title}}</strong>
             </h4>
-            <p class="grey-text">{{o.description}}
+            <p class="grey-text">{{o.Description}}
             </p>
-            <span *ngFor="let n of o.references">
+            <span *ngFor="let n of o.References">
 
                 <!--External link-->
-                <a *ngIf="!n.link" href="{{n.url}}" rel="noopener" target="_blank" mdbBtn color="" size="lg" class="waves-light d-block" mdbWavesEffect>
-                    <mdb-icon icon="{{n.icon.name}}" [ngClass]="n.icon.group" class="left {{n.icon.group}} "></mdb-icon>
-                    {{n.title}}
+                <a *ngIf="!n.link" href="{{n.Url}}" rel="noopener" target="_blank" mdbBtn color="" size="lg" class="waves-light d-block" mdbWavesEffect>
+                    <mdb-icon *ngIf="n.Icon" icon="{{n.Icon.Name}}" [ngClass]="n.Icon.Group" class="left {{n.Icon.Group}} "></mdb-icon>
+                    {{n.Title}}
                 </a>
 
                 <!--Internal link-->
                 <a *ngIf="n.link" [routerLink]="n.link" mdbBtn color="" size="lg" class="waves-light d-block" mdbWavesEffect>
-                    <mdb-icon icon="{{n.icon.name}}" [ngClass]="n.icon.group" class="left {{n.icon.group}} "></mdb-icon>
-                    {{n.title}}
+                    <mdb-icon *ngIf="n.Icon" icon="{{n.Icon.Name}}" [ngClass]="n.Icon.Group" class="left {{n.Icon.Group}} "></mdb-icon>
+                    {{n.Title}}
                 </a>
 
              </span>

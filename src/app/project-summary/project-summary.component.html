@@ -2,7 +2,7 @@
 
     <!--Card image-->
     <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-        <mdb-card-img src="{{data.media[0].url}}"></mdb-card-img>
+        <mdb-card-img src="{{data.Media[0].Url}}"></mdb-card-img>
         <a>
             <div class="mask rgba-white-slight"></div>
         </a>
@@ -10,23 +10,23 @@
 
     <mdb-card-header>
         <h4 class="card-title">
-            <strong>{{data.title}}</strong>
+            <strong>{{data.Title}}</strong>
         </h4>
         <h5 class="indigo-text">
-            <strong>{{data.subtitle}}</strong>
+            <strong>{{data.SubTitle}}</strong>
         </h5>
     </mdb-card-header>
 
 
     <mdb-card-body class="h-15">
         <mdb-card-text class="pt-2 pb-2 ">
-            {{data.description}}
+            {{data.Description}}
         </mdb-card-text>
         <div class="d-flex align-items-end">
             <div>
-                <a *ngFor="let o of data.references" href="{{o.url}}" rel="noopener" target="_blank" mdbBtn color="unique" class="waves-light" mdbWavesEffect>
-                    <mat-icon>{{o.icon}}</mat-icon>
-                    {{o.title}}
+                <a *ngFor="let o of data.References" href="{{o.Url}}" rel="noopener" target="_blank" mdbBtn color="unique" class="waves-light" mdbWavesEffect>
+                    <mat-icon>{{o.Icon}}</mat-icon>
+                    {{o.Title}}
                 </a>
             </div>
         </div>

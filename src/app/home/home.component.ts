@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   data: ContentSection = new ContentSection();
 
   constructor(private api: ApiService) {
-    this.data.backgroundImage = new Media();
+    this.data.BackgroundImage = new Media();
   }
 
   ngOnInit(): void {

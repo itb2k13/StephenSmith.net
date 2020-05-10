@@ -1,21 +1,21 @@
-<img class="position-absolute w-100 h-100 blur-50px" src="{{data.backgroundImage.url}}" />
+<img class="position-absolute w-100 h-100 blur-50px" src="{{data.BackgroundImage.Url}}" />
 <mdb-card style="background-color: unset;">
     <div class="text-center text-white py-5 px-4 my-5">
         <div class="jumbotron jumbotron-fluid bg-shadow-05">
             <div class="container">
-                <h1 class="display-4">{{data.title}}</h1>
-                <p class="lead">{{data.subtitle}}</p>
+                <h1 class="display-4">{{data.Title}}</h1>
+                <p class="lead">{{data.SubTitle}}</p>
 
                 <!--Projects section v.1-->
                 <section>
 
                     <!--Section heading-->
                     <h2 class="text-center h1 py-5">
-                        <strong>{{data.heading}}</strong>
+                        <strong>{{data.Heading}}</strong>
                     </h2>
 
                     <!--Section description-->
-                    <p class="grey-text pb-5 text-center">{{data.description}}</p>
+                    <p class="grey-text pb-5 text-center">{{data.Description}}</p>
 
                     <app-content-tiles [data]="data"></app-content-tiles>
 
@@ -25,3 +25,104 @@
         </div>
     </div>
 </mdb-card>
+
+<div class="jumbotron jumbotron-fluid bg-shadow-05">
+    <div class="container-fluid">
+        <div class="md-form">
+            <div class="card ">
+                <div class="card-header">
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>{{data.Path}}
+                        </mat-expansion-panel-header>
+                        <div class="form-inline">
+                            <input class="form-control col-4" type="text" [(ngModel)]="data.Title" placeholder="Title">
+                            <input class="form-control col-4" type="text" [(ngModel)]="data.SubTitle" placeholder="Subtitle">
+                            <input class="form-control col-4" type="text" [(ngModel)]="data.Heading" placeholder="Heading">
+                        </div>
+                        <input *ngIf="data.BackgroundImage" class="form-control" type="text" [(ngModel)]="data.BackgroundImage.Url" placeholder="Background Image">
+                        <div>
+                            <input class="form-control" type="text" [(ngModel)]="data.Description" placeholder="Description">
+                        </div>
+                        <button class="btn btn-primary" (click)="data.Projects = data.Projects || []; data.Projects.push({Title:'New Project'});">Add Project</button>
+                        <button class="btn btn-primary" (click)="saveContent();">Save Content</button>
+                    </mat-expansion-panel>
+
+                </div>
+                <div class="card-body row">
+
+                    <div class="col-6" *ngFor="let o of data.Projects">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><input class="form-control col-4" type="text" [(ngModel)]="o.Title" placeholder="Project Title"></h3>
+                            </div>
+                            <div>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header></mat-expansion-panel-header>
+
+                                    <div class="card-body p-0">
+                                        <div class="form-inline">
+                                            <input class="form-control col-8" type="text" [(ngModel)]="o.subtitle" placeholder="Subtitle">
+                                        </div>
+                                        <textarea type="text" class="md-textarea form-control" [(ngModel)]="o.Description" placeholder="Description" mdbInput></textarea>
+                                        <div class="form-inline" *ngIf="o.Icon">
+                                            <input class="form-control" type="text" [(ngModel)]="o.Icon.Name">
+                                            <input class="form-control" type="text" [(ngModel)]="o.Icon.Group">
+                                            <input class="form-control" type="text" [(ngModel)]="o.Icon.Color">
+                                        </div>
+                                        <h5>
+                                            <a>
+                                                <mdb-icon icon="plus-circle" class="fas green-text " (click)="o.Media=o.Media || [];o.Media.push({});"></mdb-icon>
+                                            </a>
+                                            Media
+                                        </h5>
+                                        <div class="form-inline" *ngFor="let n of o.Media">
+                                            <input class="form-control col-8" type="text" [(ngModel)]="n.Url" placeholder="Url">
+                                            <input class="form-control col-4" type="text" [(ngModel)]="n.Title" placeholder="Title">
+                                        </div>
+                                        <h5>
+                                            <a>
+                                                <mdb-icon icon="plus-circle" class="fas green-text " (click)="o.References=o.References || [];o.References.push({icon:{}});"></mdb-icon>
+                                            </a>
+                                            References
+                                        </h5>
+                                        <div *ngFor="let n of o.References">
+
+                                            <div class="form-inline">
+                                                <input class="form-control" type="text" [(ngModel)]="n.Title" placeholder="Title">
+                                                <input class="form-control" type="text" [(ngModel)]="n.Url" placeholder="External url">
+                                                <input class="form-control" type="text" [(ngModel)]="n.Link" placeholder="Internal link">
+                                            </div>
+                                            <div class="form-inline" *ngIf="n.Icon">
+                                                <input class="form-control" type="text" [(ngModel)]="n.Icon.Name" placeholder="Icon name">
+                                                <input class="form-control" type="text" [(ngModel)]="n.Icon.Group" placeholder="Icon group">
+                                                <input class="form-control" type="text" [(ngModel)]="n.Icon.Color" placeholder="Icon color">
+                                            </div>
+
+                                        </div>
+                                        <h5>
+                                            <a>
+                                                <mdb-icon icon="plus-circle" class="fas green-text " (click)="o.Features=o.Features || []; o.Features.push({Image:{}});"></mdb-icon>
+                                            </a>
+                                            Project Features
+                                        </h5>
+                                        <div *ngFor="let n of o.Features">
+
+                                            <div class="form-inline">
+                                                <input class="form-control" type="text" [(ngModel)]="n.Title" placeholder="Title">
+                                                <input class="form-control" type="text" [(ngModel)]="n.Image.Url" placeholder="Image Url">
+                                                <input class="form-control" type="text" [(ngModel)]="n.Image.Title" placeholder="Image Title">
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </mat-expansion-panel>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

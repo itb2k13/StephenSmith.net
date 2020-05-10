@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -57,6 +58,7 @@ import { ProjectFeatureComponent } from './project-feature/project-feature.compo
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatExpansionModule,
     MatInputModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,

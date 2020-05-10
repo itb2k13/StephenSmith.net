@@ -16,7 +16,7 @@ export class ProjectsComponent implements OnInit {
   contentpath: string;
 
   constructor(private api: ApiService, private activatedRoute: ActivatedRoute) {
-    this.data.backgroundImage = new Media();
+    this.data.BackgroundImage = new Media();
   }
 
   ngOnInit(): void {

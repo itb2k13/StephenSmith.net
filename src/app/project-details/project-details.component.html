@@ -2,10 +2,10 @@
 <div class="jumbotron text-center mdb-color lighten-2 white-text mx-2 mb-5">
 
     <!-- Title -->
-    <h2 class="card-title h2">{{data.title}}</h2>
+    <h2 class="card-title h2">{{data.Title}}</h2>
 
     <!-- Subtitle -->
-    <p class="my-4 h6">{{data.subtitle}}</p>
+    <p class="my-4 h6">{{data.SubTitle}}</p>
 
     <!-- Grid row -->
     <div class="row d-flex justify-content-center">
@@ -13,7 +13,7 @@
         <!-- Grid column -->
         <div class="col-xl-7 pb-2">
 
-            <p class="card-text">{{data.description}}</p>
+            <p class="card-text">{{data.Description}}</p>
 
         </div>
         <!-- Grid column -->
@@ -26,7 +26,7 @@
 <!-- Jumbotron -->
 
 <!-- News jumbotron -->
-<div *ngFor="let o of data.features" class="jumbotron text-center hoverable p-4">
+<div *ngFor="let o of data.Features" class="jumbotron text-center hoverable p-4">
 
     <app-project-feature [data]="o"></app-project-feature>
 
@@ -37,7 +37,7 @@
 
     <mat-carousel timings="250ms ease-in" [autoplay]="false" interval="5000" color="accent" maintainAspectRatio="true" maxWidth="100%" proportion="75" slides="5" [loop]="true" [hideArrows]="false" [hideIndicators]="true" [useKeyboard]="true" [useMouseWheel]="false"
         orientation="ltr">
-        <mat-carousel-slide #matCarouselSlide *ngFor="let slide of data.media; let i = index" [image]="slide.url" overlayColor="#00000040" [hideOverlay]="false"></mat-carousel-slide>
+        <mat-carousel-slide #matCarouselSlide *ngFor="let slide of data.Media; let i = index" [image]="slide.Url" overlayColor="#00000040" [hideOverlay]="false"></mat-carousel-slide>
     </mat-carousel>
 
 </div>
