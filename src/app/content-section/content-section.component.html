@@ -43,17 +43,21 @@
                         <div>
                             <input class="form-control" type="text" [(ngModel)]="data.Description" placeholder="Description">
                         </div>
-                        <button class="btn btn-primary" (click)="data.Projects = data.Projects || []; data.Projects.push({Title:'New Project'});">Add Project</button>
+                        <button class="btn btn-primary" (click)="data.Projects = data.Projects || []; data.Projects.push({Title:'New Project', Icon: {}});">Add Project</button>
                         <button class="btn btn-primary" (click)="saveContent();">Save Content</button>
                     </mat-expansion-panel>
 
                 </div>
                 <div class="card-body row">
 
-                    <div class="col-6" *ngFor="let o of data.Projects">
+                    <div class="col-xs-12 col-md-6" *ngFor="let o of data.Projects; let i = index;">
                         <div class="card">
                             <div class="card-header">
-                                <h3><input class="form-control col-4" type="text" [(ngModel)]="o.Title" placeholder="Project Title"></h3>
+                                <h3>
+                                    <a class="d-inline pr-3">
+                                        <mdb-icon icon="times-circle" class="fas red-text" (click)="data.Projects.splice(i,1);"></mdb-icon>
+                                    </a>
+                                    <input class="form-control col-10 d-inline" type="text" [(ngModel)]="o.Title" placeholder="Project Title"></h3>
                             </div>
                             <div>
                                 <mat-expansion-panel>
@@ -65,9 +69,9 @@
                                         </div>
                                         <textarea type="text" class="md-textarea form-control" [(ngModel)]="o.Description" placeholder="Description" mdbInput></textarea>
                                         <div class="form-inline" *ngIf="o.Icon">
-                                            <input class="form-control" type="text" [(ngModel)]="o.Icon.Name">
-                                            <input class="form-control" type="text" [(ngModel)]="o.Icon.Group">
-                                            <input class="form-control" type="text" [(ngModel)]="o.Icon.Color">
+                                            <input class="form-control" type="text" [(ngModel)]="o.Icon.Name" placeholder="Icon name">
+                                            <input class="form-control" type="text" [(ngModel)]="o.Icon.Group" placeholder="Icon group">
+                                            <input class="form-control" type="text" [(ngModel)]="o.Icon.Color" placeholder="Icon color">
                                         </div>
                                         <h5>
                                             <a>
@@ -81,7 +85,7 @@
                                         </div>
                                         <h5>
                                             <a>
-                                                <mdb-icon icon="plus-circle" class="fas green-text " (click)="o.References=o.References || [];o.References.push({icon:{}});"></mdb-icon>
+                                                <mdb-icon icon="plus-circle" class="fas green-text " (click)="o.References=o.References || [];o.References.push({Icon:{}});"></mdb-icon>
                                             </a>
                                             References
                                         </h5>

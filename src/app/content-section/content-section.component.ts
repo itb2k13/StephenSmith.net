@@ -27,7 +27,7 @@ export class ContentSectionComponent implements OnInit {
   }
 
   saveContent() {
-    this.api.getContent(this.section, this.contentpath)
+    this.api.setContent(this.section, this.contentpath, this.data)
       .subscribe((res: ContentSection) => {
         this.data = res;
       }, err => { });

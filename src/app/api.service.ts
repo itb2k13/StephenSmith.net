@@ -20,8 +20,17 @@ export class ApiService {
   getContent(section: string, contentpath: string): Observable<ContentSection> {
     return this.http.get<ContentSection>(`${apiUrl}/${section}/${contentpath}`)
       .pipe(
-        tap(cases => console.log('fetched cases')),
-        catchError(this.handleError('getCases', null))
+        tap(cases => console.log('fetched content')),
+        catchError(this.handleError('getContent', null))
+      );
+  }
+
+
+  setContent(section: string, contentpath: string, content: ContentSection): Observable<ContentSection> {
+    return this.http.post<ContentSection>(`${apiUrl}/${section}/${contentpath}`, content)
+      .pipe(
+        tap(cases => console.log('updated content')),
+        catchError(this.handleError('setContent', null))
       );
   }
 

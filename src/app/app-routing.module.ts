@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    data: { title: 'List of Projects' }
+    data: { section: 'base', contentpath: 'home' }
   },
   {
     path: 'contact',
@@ -29,6 +29,11 @@ const routes: Routes = [
     path: 'projects/personal/:id',
     component: ProjectDetailsComponent,
     data: { section: 'projects', contentpath: 'personal' }
+  },
+  {
+    path: 'projects/commercial/:id',
+    component: ProjectDetailsComponent,
+    data: { section: 'projects', contentpath: 'commercial' }
   },
   {
     path: 'academic',

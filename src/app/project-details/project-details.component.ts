@@ -18,7 +18,6 @@ export class ProjectDetailsComponent implements OnInit {
 
   constructor(private api: ApiService, private activatedRoute: ActivatedRoute) {
     this.data = new Project();
-    this.projectTitle = 'pfSFV';
   }
 
   ngOnInit(): void {
@@ -26,6 +25,10 @@ export class ProjectDetailsComponent implements OnInit {
     this.activatedRoute.data.subscribe(data => {
       this.section = data.section;
       this.contentpath = data.contentpath;
+    });
+
+    this.activatedRoute.params.subscribe(data => {
+      this.projectTitle = data.id;
     });
 
     this.api.getProjectDetail(this.section, this.contentpath, this.projectTitle)
