@@ -1,16 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { MatMenuModule } from '@angular/material/menu';
+import { BaseComponent } from '../base/base.component';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-top-menu',
   templateUrl: './top-menu.component.html',
   styleUrls: ['./top-menu.component.scss']
 })
-export class TopMenuComponent implements OnInit {
 
-  constructor() { }
+export class TopMenuComponent extends BaseComponent implements OnInit {
 
-  ngOnInit(): void {
+  constructor(authService: AuthService) {
+    super(authService);
   }
+
+  async ngOnInit() {
+
+  }
+
 
 }

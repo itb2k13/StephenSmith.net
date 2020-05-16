@@ -1,4 +1,4 @@
-<img class="position-absolute w-100 h-100 blur-50px" src="{{data.BackgroundImage.Url}}" />
+<img *ngIf="data.BackgroundImage" class="bg-fixed min-vw-100 h-100 {{data.BackgroundImage.Class}}" src="{{data.BackgroundImage.Url}}" />
 <mdb-card style="background-color: unset;">
     <div class="text-center text-white py-5 px-4 my-5">
         <div class="jumbotron jumbotron-fluid bg-shadow-05">
@@ -26,24 +26,27 @@
     </div>
 </mdb-card>
 
-<div class="jumbotron jumbotron-fluid bg-shadow-05">
+<div *ngIf="isAuthenticated()" class="jumbotron jumbotron-fluid bg-shadow-05">
     <div class="container-fluid">
         <div class="md-form">
             <div class="card ">
                 <div class="card-header">
                     <mat-expansion-panel>
-                        <mat-expansion-panel-header>{{data.Path}}
+                        <mat-expansion-panel-header>
+                            <span class="font-weight-light text-capitalize h1-responsive">{{data.Path}}</span>
                         </mat-expansion-panel-header>
                         <div class="form-inline">
                             <input class="form-control col-4" type="text" [(ngModel)]="data.Title" placeholder="Title">
                             <input class="form-control col-4" type="text" [(ngModel)]="data.SubTitle" placeholder="Subtitle">
                             <input class="form-control col-4" type="text" [(ngModel)]="data.Heading" placeholder="Heading">
-                        </div>
-                        <input *ngIf="data.BackgroundImage" class="form-control" type="text" [(ngModel)]="data.BackgroundImage.Url" placeholder="Background Image">
-                        <div>
                             <input class="form-control" type="text" [(ngModel)]="data.Description" placeholder="Description">
                         </div>
+                        <div *ngIf="data.BackgroundImage" class="form-inline">
+                            <input class="form-control col-8" type="text" [(ngModel)]="data.BackgroundImage.Url" placeholder="Background Image">
+                            <input class="form-control col-4" type="text" [(ngModel)]="data.BackgroundImage.Class" placeholder="Css Class(es)">
+                        </div>
                         <button class="btn btn-primary" (click)="data.Projects = data.Projects || []; data.Projects.push({Title:'New Project', Icon: {}});">Add Project</button>
+                        <button class="btn btn-primary" (click)="data.BackgroundImage = {};">Add Background</button>
                         <button class="btn btn-primary" (click)="saveContent();">Save Content</button>
                     </mat-expansion-panel>
 
@@ -55,7 +58,8 @@
                             <div class="card-header">
                                 <h3>
                                     <a class="d-inline pr-3">
-                                        <mdb-icon icon="times-circle" class="fas red-text" (click)="data.Projects.splice(i,1);"></mdb-icon>
+                                        <mdb-icon icon="times-circle" class="fas pr-1 red-text" (click)="data.Projects.splice(i,1);"></mdb-icon>
+                                        <mdb-icon icon="copy" class="far green-text" (click)="data.Projects.push(o);"></mdb-icon>
                                     </a>
                                     <input class="form-control col-10 d-inline" type="text" [(ngModel)]="o.Title" placeholder="Project Title"></h3>
                             </div>
@@ -65,7 +69,7 @@
 
                                     <div class="card-body p-0">
                                         <div class="form-inline">
-                                            <input class="form-control col-8" type="text" [(ngModel)]="o.subtitle" placeholder="Subtitle">
+                                            <input class="form-control col-12" type="text" [(ngModel)]="o.SubTitle" placeholder="Subtitle">
                                         </div>
                                         <textarea type="text" class="md-textarea form-control" [(ngModel)]="o.Description" placeholder="Description" mdbInput></textarea>
                                         <div class="form-inline" *ngIf="o.Icon">
@@ -113,10 +117,35 @@
 
                                             <div class="form-inline">
                                                 <input class="form-control" type="text" [(ngModel)]="n.Title" placeholder="Title">
+                                                <input class="form-control" type="text" [(ngModel)]="n.SubTitle" placeholder="SubTitle">
+                                                <input class="form-control" type="text" [(ngModel)]="n.Author" placeholder="Author">
+                                                <input class="form-control" type="text" [(ngModel)]="n.DateStamp" placeholder="DateStamp">
                                                 <input class="form-control" type="text" [(ngModel)]="n.Image.Url" placeholder="Image Url">
                                                 <input class="form-control" type="text" [(ngModel)]="n.Image.Title" placeholder="Image Title">
+                                                <h6>
+                                                    <a>
+                                                        <mdb-icon icon="plus-circle" class="fas green-text " (click)="n.Icon={}"></mdb-icon>
+                                                    </a>
+                                                    Icon
+                                                </h6>
+                                                <div class="form-inline" *ngIf="n.Icon">
+                                                    <input class="form-control" type="text" [(ngModel)]="n.Icon.Name" placeholder="Icon name">
+                                                    <input class="form-control" type="text" [(ngModel)]="n.Icon.Group" placeholder="Icon group">
+                                                    <input class="form-control" type="text" [(ngModel)]="n.Icon.Color" placeholder="Icon color">
+                                                </div>
                                             </div>
 
+                                            <div>
+                                                <h6>
+                                                    <a>
+                                                        <mdb-icon icon="plus-circle" class="fas green-text " (click)="n.FeatureSet=n.FeatureSet || []; n.FeatureSet.push('');"></mdb-icon>
+                                                    </a>
+                                                    Feature Items
+                                                </h6>
+                                                <div *ngFor="let p of n.FeatureSet; let i = index; trackBy: customTrackBy">
+                                                    <input class="form-control" type="text" [(ngModel)]="n.FeatureSet[i]" placeholder="Item description">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 

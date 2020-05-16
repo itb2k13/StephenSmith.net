@@ -19,11 +19,13 @@
     <div class="col-md-7 text-md-left ml-3 mt-3">
 
         <h4 class="h4 mb-4">
-            <mdb-icon fas icon="desktop" class="pr-1"></mdb-icon> {{data.Title}}</h4>
-        <ul class="font-weight-normal">
+            <mdb-icon *ngIf="data.Icon" icon="{{data.Icon.Name}}" [ngClass]="data.Icon.Group" class="pr-3 fa-lg {{data.Icon.Color}} {{data.Icon.Group}}"></mdb-icon>
+            <span class="font-weight-light h1-responsive text-muted">{{data.Title}}</span>
+        </h4>
+        <ul class="font-weight-normal text-left">
             <li *ngFor="let o of data.FeatureSet">{{o}}</li>
         </ul>
-        <p class="font-weight-normal">by <a><strong>Carine Fox</strong></a>, 19/08/2016</p>
+        <p class="font-weight-normal">by <a><strong>{{data.Author}}</strong></a>, {{data.DateStamp}}</p>
 
     </div>
     <!-- Grid column -->

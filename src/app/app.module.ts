@@ -36,6 +36,24 @@ import { ContentSectionComponent } from './content-section/content-section.compo
 import { ContentTilesComponent } from './content-tiles/content-tiles.component';
 import { ContentProviderComponent } from './content-provider/content-provider.component';
 import { ProjectFeatureComponent } from './project-feature/project-feature.component';
+import { LoginComponent } from './login/login.component';
+
+import {
+  OKTA_CONFIG,
+  OktaAuthGuard,
+  OktaAuthModule,
+  OktaCallbackComponent,
+} from '@okta/okta-angular';
+
+import sampleConfig from './app.config';
+import { BaseComponent } from './base/base.component';
+
+const oktaConfig = Object.assign({
+  onAuthRequired: ({ oktaAuth, router }) => {
+    // Redirect the user to your custom login page
+    router.navigate(['/login']);
+  }
+}, sampleConfig.oidc);
 
 @NgModule({
   declarations: [
@@ -49,7 +67,9 @@ import { ProjectFeatureComponent } from './project-feature/project-feature.compo
     ContentSectionComponent,
     ContentTilesComponent,
     ContentProviderComponent,
-    ProjectFeatureComponent
+    ProjectFeatureComponent,
+    LoginComponent,
+    BaseComponent
   ],
   imports: [
     BrowserModule,
@@ -75,9 +95,12 @@ import { ProjectFeatureComponent } from './project-feature/project-feature.compo
     MatGridListModule,
     MatMenuModule,
     MatCarouselModule.forRoot(),
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    OktaAuthModule
   ],
-  providers: [],
+  providers: [
+    { provide: OKTA_CONFIG, useValue: oktaConfig }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

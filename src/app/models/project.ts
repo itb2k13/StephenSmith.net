@@ -13,10 +13,15 @@ export class Reference {
 export class Media {
   Title?: string;
   Url?: string;
+  Class?: string;
 }
 
 export class Feature {
   Title: string;
+  SubTitle?: string;
+  Icon?: Icon;
+  Author?: string;
+  DateStamp?: string;
   Image: Media;
   FeatureSet: string[];
 }
@@ -26,7 +31,9 @@ export class Project {
   SubTitle?: string;
   Description?: string;
   Icon?: Icon;
+  ShowIcon?: boolean;
   References?: Reference[];
+  Technologies?: Reference[];
   Media?: Media[];
   Features?: Feature[];
 }

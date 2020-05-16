@@ -23,6 +23,8 @@
     "@angular/router": "~10.0.0-next.4",
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@ngmodule/material-carousel": "^0.6.0",
+    "@okta/okta-angular": "^2.0.0",
+    "@okta/okta-signin-widget": "^4.0.2",
     "@types/chart.js": "^2.9.20",
     "angular-bootstrap-md": "^9.2.0",
     "animate.css": "^3.7.2",

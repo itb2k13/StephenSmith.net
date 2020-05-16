@@ -3,11 +3,8 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Project, ContentSection } from './models/project';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-const apiUrl = 'https://sjsapi.azurewebsites.net/api/contents';
+import { AuthService } from './auth.service';
+import config from './app.config';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +12,25 @@ const apiUrl = 'https://sjsapi.azurewebsites.net/api/contents';
 
 export class ApiService {
 
-  constructor(private http: HttpClient) { }
+  private apiUrl: string;
+
+  constructor(private http: HttpClient, public auth: AuthService) {
+    this.apiUrl = config.resourceServer.api;
+  }
+
+  private accessToken() {
+    return this.auth.accessToken();
+  }
+
+  private httpHeaders() {
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.accessToken()}`
+    });
+  }
 
   getContent(section: string, contentpath: string): Observable<ContentSection> {
-    return this.http.get<ContentSection>(`${apiUrl}/${section}/${contentpath}`)
+    return this.http.get<ContentSection>(`${this.apiUrl}/${section}/${contentpath}`, { headers: this.httpHeaders() })
       .pipe(
         tap(cases => console.log('fetched content')),
         catchError(this.handleError('getContent', null))
@@ -27,7 +39,7 @@ export class ApiService {
 
 
   setContent(section: string, contentpath: string, content: ContentSection): Observable<ContentSection> {
-    return this.http.post<ContentSection>(`${apiUrl}/${section}/${contentpath}`, content)
+    return this.http.post<ContentSection>(`${this.apiUrl}/${section}/${contentpath}`, content, { headers: this.httpHeaders() })
       .pipe(
         tap(cases => console.log('updated content')),
         catchError(this.handleError('setContent', null))
@@ -35,7 +47,7 @@ export class ApiService {
   }
 
   getProjectDetail(section: string, contentpath: string, projectTitle: string): Observable<Project> {
-    return this.http.get<Project>(`${apiUrl}/${section}/${contentpath}/${projectTitle}`)
+    return this.http.get<Project>(`${this.apiUrl}/${section}/${contentpath}/${projectTitle}`)
       .pipe(
         tap(cases => console.log('fetched project details')),
         catchError(this.handleError('getProjectDetail', null))
