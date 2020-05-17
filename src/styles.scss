@@ -24,6 +24,10 @@ body {
     z-index: -1;
 }
 
+.bg-cover {
+    background-size: cover;
+}
+
 .blur-5px {
     filter: blur(5px) opacity(0.5);
 }
