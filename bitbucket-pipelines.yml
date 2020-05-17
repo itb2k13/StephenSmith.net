@@ -12,14 +12,12 @@ pipelines:
           - node
         script: # Modify the commands below to build your repository.
           - npm install
-          - npm test
           - pipe: atlassian/sftp-deploy:0.5.5
             variables:
-              USER: 'ec2-user'
-              SERVER: '127.0.0.1'
-              REMOTE_PATH: '/var/www/build/'
-              LOCAL_PATH: 'build/*'
+              USER: $FTP_USER
+              SERVER: $FTP_URL
+              REMOTE_PATH: '/bb'
+              LOCAL_PATH: 'dist/*'
               SSH_KEY: $MY_SSH_KEY
-              DEBUG: 'true'
-              EXTRA_ARGS: '-o ServerAliveInterval=10'
+              PASSWORD: $FTP_PASS
 
