@@ -30,6 +30,7 @@ export class Project {
   Title?: string;
   SubTitle?: string;
   Description?: string;
+  Banner?: Media;
   Icon?: Icon;
   ShowIcon?: boolean;
   References?: Reference[];
