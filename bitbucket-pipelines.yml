@@ -17,8 +17,8 @@ pipelines:
             variables:
               USER: $FTP_USER
               SERVER: $FTP_URL
-              REMOTE_PATH: '/bb/'
-              LOCAL_PATH: 'dist/app/'
+              REMOTE_PATH: '/'
+              LOCAL_PATH: 'dist/app'
               SSH_KEY: $MY_SSH_KEY
               PASSWORD: $FTP_PASS
 
