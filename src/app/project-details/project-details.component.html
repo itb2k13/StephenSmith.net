@@ -1,26 +1,28 @@
 <!-- Jumbotron -->
-<div [style.backgroundImage]="'url('+data.Banner?.Url+')'" class=" bg-cover jumbotron text-center text-shadow mdb-color lighten-2 white-text mx-2 mb-5">
+<div [style.backgroundImage]="'url('+data.Banner?.Url+')'" class=" bg-cover h1-responsive p-0 jumbotron text-center text-shadow mdb-color lighten-2 white-text mb-5">
 
-    <!-- Title -->
-    <h2 class="card-title h2">{{data.Title}}</h2>
+    <div class="bg-shadow-05">
 
-    <!-- Subtitle -->
-    <p class="my-4 h6">{{data.SubTitle}}</p>
+        <!-- Title -->
+        <h2 class="card-title h1-responsive">{{data.Title}}</h2>
 
-    <!-- Grid row -->
-    <div class="row d-flex justify-content-center">
+        <!-- Subtitle -->
+        <p class="my-4 h6">{{data.SubTitle}}</p>
 
-        <!-- Grid column -->
-        <div class="col-xl-7 pb-2">
+        <!-- Grid row -->
+        <div class="row d-flex justify-content-center">
 
-            <p class="h2-responsive">{{data.Description}}</p>
+            <!-- Grid column -->
+            <div class="col-xl-7 pb-2">
+
+                <p class="">{{data.Description}}</p>
+
+            </div>
+            <!-- Grid column -->
 
         </div>
-        <!-- Grid column -->
-
+        <!-- Grid row -->
     </div>
-    <!-- Grid row -->
-
 
 </div>
 <!-- Jumbotron -->

@@ -38,6 +38,8 @@ import { ContentProviderComponent } from './content-provider/content-provider.co
 import { ProjectFeatureComponent } from './project-feature/project-feature.component';
 import { LoginComponent } from './login/login.component';
 
+import { NgImageSliderModule } from 'ng-image-slider';
+
 import {
   OKTA_CONFIG,
   OktaAuthGuard,
@@ -96,7 +98,8 @@ const oktaConfig = Object.assign({
     MatMenuModule,
     MatCarouselModule.forRoot(),
     MDBBootstrapModule.forRoot(),
-    OktaAuthModule
+    OktaAuthModule,
+    NgImageSliderModule
   ],
   providers: [
     { provide: OKTA_CONFIG, useValue: oktaConfig }

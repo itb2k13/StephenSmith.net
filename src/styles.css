@@ -45,3 +45,8 @@ body {
 .text-shadow {
   text-shadow: 2px 2px black;
 }
+.main-inner,
+.img-div {
+  min-width: 100%;
+  width: 100%;
+}
