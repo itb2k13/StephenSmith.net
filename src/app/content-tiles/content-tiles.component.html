@@ -37,6 +37,14 @@
                 </a>
 
              </span>
+            <div class=" font-small">
+                <div class="text-muted">Technologies</div>
+                <div class="text-alternate">
+                    <span *ngFor="let n of o.Technologies"><span *ngIf="n.Title" >{{n.Title}}</span></span>
+                </div>
+            </div>
+
+
         </mdb-card-body>
 
     </div>

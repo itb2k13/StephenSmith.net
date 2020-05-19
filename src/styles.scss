@@ -66,3 +66,11 @@ body {
     min-width: 100%;
     width: 100%;
 }
+
+.text-alternate span:nth-child(odd) {
+    color: #cdcdcd !important;
+}
+
+.text-alternate span:not(:last-child)::after {
+    content: ", ";
+}

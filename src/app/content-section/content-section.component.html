@@ -113,6 +113,15 @@
                                         </div>
                                         <h5>
                                             <a>
+                                                <mdb-icon icon="plus-circle" class="fas green-text " (click)="o.Technologies=o.Technologies || [];o.Technologies.push({Icon:{}});"></mdb-icon>
+                                            </a>
+                                            Technologies
+                                        </h5>
+                                        <div class="form-inline">
+                                            <input *ngFor="let n of o.Technologies; let i = index;" (blur)="addToEnd(i, o.Technologies);" class="form-control" type="text" [(ngModel)]="n.Title" placeholder="Title">
+                                        </div>
+                                        <h5>
+                                            <a>
                                                 <mdb-icon icon="plus-circle" class="fas green-text " (click)="o.Features=o.Features || []; o.Features.push({Image:{}});"></mdb-icon>
                                             </a>
                                             Project Features
