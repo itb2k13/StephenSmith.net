@@ -10,9 +10,11 @@
             <img *ngIf="!o.ShowIcon && o.Media" src="{{o.Media[0].Url}}" class="img-fluid w-100" alt="{{o.Media[0].Title}}">
 
             <mdb-icon *ngIf="o.ShowIcon" icon="{{o.Icon.Name}}" [ngClass]="o.Icon.Group" class="fa-3x p-3 {{o.Icon.Color}} {{o.Icon.Group}}"></mdb-icon>
-            <a>
+
+            <a *ngIf="o.References && o.References[0].Link" [routerLink]="o.References[0].Link" mdbWavesEffect>
                 <div class="mask rgba-white-slight"></div>
             </a>
+
         </div>
 
         <!--Excerpt-->
@@ -40,7 +42,7 @@
             <div class=" font-small">
                 <div class="text-muted">Technologies</div>
                 <div class="text-alternate">
-                    <span *ngFor="let n of o.Technologies"><span *ngIf="n.Title" >{{n.Title}}</span></span>
+                    <span *ngFor="let n of o.Technologies">{{n.Title}}</span>
                 </div>
             </div>
 

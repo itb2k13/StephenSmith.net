@@ -88,8 +88,8 @@
                                             Media
                                         </h5>
                                         <div class="form-inline" *ngFor="let n of o.Media">
-                                            <input class="form-control col-8" type="text" [(ngModel)]="n.Url" placeholder="Url">
                                             <input class="form-control col-4" type="text" [(ngModel)]="n.Title" placeholder="Title">
+                                            <input class="form-control col-8" type="text" [(ngModel)]="n.Url" placeholder="Url">
                                         </div>
                                         <h5>
                                             <a>
@@ -97,17 +97,20 @@
                                             </a>
                                             References
                                         </h5>
-                                        <div *ngFor="let n of o.References">
+                                        <div *ngFor="let n of o.References; let i = index;">
 
                                             <div class="form-inline">
+                                                <a>
+                                                    <mdb-icon icon="times-circle" class="fas pr-1 red-text" (click)="o.References.splice(i,1);"></mdb-icon>
+                                                </a>
                                                 <input class="form-control" type="text" [(ngModel)]="n.Title" placeholder="Title">
                                                 <input class="form-control" type="text" [(ngModel)]="n.Url" placeholder="External url">
                                                 <input class="form-control" type="text" [(ngModel)]="n.Link" placeholder="Internal link">
                                             </div>
                                             <div class="form-inline" *ngIf="n.Icon">
-                                                <input class="form-control" type="text" [(ngModel)]="n.Icon.Name" placeholder="Icon name">
-                                                <input class="form-control" type="text" [(ngModel)]="n.Icon.Group" placeholder="Icon group">
-                                                <input class="form-control" type="text" [(ngModel)]="n.Icon.Color" placeholder="Icon color">
+                                                <input class="form-control col-6" type="text" [(ngModel)]="n.Icon.Name" placeholder="Icon name">
+                                                <input class="form-control col-2" type="text" [(ngModel)]="n.Icon.Group" placeholder="Icon group">
+                                                <input class="form-control col-4" type="text" [(ngModel)]="n.Icon.Color" placeholder="Icon color">
                                             </div>
 
                                         </div>
