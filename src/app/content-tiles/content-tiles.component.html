@@ -39,8 +39,8 @@
                 </a>
 
              </span>
-            <div class=" font-small">
-                <div class="text-muted">Technologies</div>
+            <div *ngIf="o.Technologies" class=" font-small">
+                <div class="text-muted">Powered by</div>
                 <div class="text-alternate">
                     <span *ngFor="let n of o.Technologies">{{n.Title}}</span>
                 </div>

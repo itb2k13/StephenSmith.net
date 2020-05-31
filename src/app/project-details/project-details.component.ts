@@ -20,6 +20,12 @@ export class ProjectDetailsComponent implements OnInit {
     this.data = new Project();
   }
 
+  getImages(): string[] {
+    var featureImages = this.data.Features?.map(x => x.Image.Url) || [];
+    var mediaImages = this.data.Media?.map(x => x.Url) || [];
+    return featureImages.concat(mediaImages);
+  }
+
   ngOnInit(): void {
 
     this.activatedRoute.data.subscribe(data => {

@@ -32,7 +32,7 @@
 </mdb-card>
 
 <div id='edit' *ngIf="isAuthenticated()" class="jumbotron jumbotron-fluid bg-shadow-05">
-    <div class="container-fluid p-0">
+    <div class="container-fluid font-small">
         <div class="md-form">
             <div class="card ">
                 <div class="card-header">
@@ -70,11 +70,12 @@
                             </div>
                             <div>
                                 <mat-expansion-panel>
-                                    <mat-expansion-panel-header class="p-1">
-                                        <input class="form-control col-12" type="text" [(ngModel)]="o.SubTitle" placeholder="Subtitle">
+                                    <mat-expansion-panel-header class="p-1 pr-3">
+
                                     </mat-expansion-panel-header>
 
                                     <div class="card-body p-0">
+                                        <input class="form-control col-12" type="text" [(ngModel)]="o.SubTitle" placeholder="Subtitle">
                                         <textarea type="text" class="md-textarea form-control" [(ngModel)]="o.Description" placeholder="Description" mdbInput></textarea>
                                         <div *ngIf="o.Banner" class="form-inline">
                                             <input class="form-control col-12" type="text" [(ngModel)]="o.Banner.Url" placeholder="Banner Image">
@@ -101,7 +102,7 @@
                                         </h5>
                                         <div *ngFor="let n of o.References; let i = index;">
                                             <mat-expansion-panel>
-                                                <mat-expansion-panel-header class="p-1">
+                                                <mat-expansion-panel-header class="p-1 pr-3">
                                                     <a>
                                                         <mdb-icon icon="times-circle" class="fas pr-1 red-text" (click)="o.References.splice(i,1);"></mdb-icon>
                                                     </a>
@@ -141,10 +142,11 @@
 
                                         <div *ngFor="let n of o.Features">
                                             <mat-expansion-panel>
-                                                <mat-expansion-panel-header class="p-1">
-                                                    <input class="form-control" type="text" [(ngModel)]="n.Title" placeholder="Title">
+                                                <mat-expansion-panel-header class="p-1 pr-3">
+                                                    <span>{{n.Title}}</span>
                                                 </mat-expansion-panel-header>
                                                 <div class="form-inline">
+                                                    <input class="form-control" type="text" [(ngModel)]="n.Title" placeholder="Title">
                                                     <input class="form-control" type="text" [(ngModel)]="n.SubTitle" placeholder="SubTitle">
                                                     <input class="form-control" type="text" [(ngModel)]="n.Image.Url" placeholder="Image Url">
                                                     <input class="form-control col-6" type="text" [(ngModel)]="n.Author" placeholder="Author">
