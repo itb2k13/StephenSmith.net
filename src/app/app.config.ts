@@ -11,5 +11,5 @@ export default {
     resourceServer: {
         api: 'https://sjsapi.azurewebsites.net/api/contents',
     },
-    mediaBase: 'https://pfsfv.co.uk/_resources'
+    mediaBase: 'https://stephsmith.online/_resources'
 }; 
