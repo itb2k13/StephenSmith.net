@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project, Feature, Media } from '../models/project';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
+import { MediaProviderService } from '../media-provider.service';
 
 @Component({
   selector: 'app-project-details',
@@ -16,13 +17,13 @@ export class ProjectDetailsComponent implements OnInit {
   contentpath: string;
   projectTitle: string;
 
-  constructor(private api: ApiService, private activatedRoute: ActivatedRoute) {
+  constructor(private api: ApiService, private activatedRoute: ActivatedRoute, public mediaProviderService: MediaProviderService) {
     this.data = new Project();
   }
 
   getImages(): string[] {
-    var featureImages = this.data.Features?.map(x => x.Image.Url) || [];
-    var mediaImages = this.data.Media?.map(x => x.Url) || [];
+    var featureImages = this.data.Features?.map(x => this.mediaProviderService.getUrl(x.Image.Url)) || [];
+    var mediaImages = this.data.Media?.map(x => this.mediaProviderService.getUrl(x.Url)) || [];
     return featureImages.concat(mediaImages);
   }
 

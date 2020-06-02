@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { MediaProviderService } from '../media-provider.service';
 
 @Component({
   selector: 'app-base',
@@ -8,7 +9,7 @@ import { AuthService } from '../auth.service';
 })
 export class BaseComponent {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, public mediaProvider: MediaProviderService) { }
 
   public isAuthenticated() {
     return this.authService.isAuthenticated();

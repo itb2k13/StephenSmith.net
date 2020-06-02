@@ -7,7 +7,7 @@
         <!--Featured image-->
         <div class="view overlay rounded z-depth-1 waves-light" mdbWavesEffect>
 
-            <img *ngIf="!o.ShowIcon && o.Media" src="{{o.Media[0].Url}}" class="img-fluid w-100" alt="{{o.Media[0].Title}}">
+            <img *ngIf="!o.ShowIcon && o.Media" src="{{mediaProvider.getUrl(o.Media[0].Url)}}" class="img-fluid w-100" alt="{{o.Media[0].Title}}">
 
             <mdb-icon *ngIf="o.ShowIcon" icon="{{o.Icon.Name}}" [ngClass]="o.Icon.Group" class="fa-3x p-3 {{o.Icon.Color}} {{o.Icon.Group}}"></mdb-icon>
 

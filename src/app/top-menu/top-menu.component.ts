@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../base/base.component';
 import { AuthService } from '../auth.service';
+import { MediaProviderService } from '../media-provider.service';
 
 @Component({
   selector: 'app-top-menu',
@@ -10,8 +11,8 @@ import { AuthService } from '../auth.service';
 
 export class TopMenuComponent extends BaseComponent implements OnInit {
 
-  constructor(authService: AuthService) {
-    super(authService);
+  constructor(authService: AuthService, mediaProviderService: MediaProviderService) {
+    super(authService, mediaProviderService);
   }
 
   async ngOnInit() {

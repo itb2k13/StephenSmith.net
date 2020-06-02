@@ -8,7 +8,7 @@
         <div class=" overlay waves-light" mdbWavesEffect>
 
             <div class="img-fluid img-thumbnail z-depth-4">
-                <ng-image-slider [manageImageRatio]="true" [images]="[{image: data.Image.Url,thumbImage: data.Image.Url,alt:data.Image.Title,title:data.Image.Title}]" #nav></ng-image-slider>
+                <ng-image-slider [manageImageRatio]="true" [images]="[{image: mediaProviderService.getUrl(data.Image.Url),thumbImage: mediaProviderService.getUrl(data.Image.Url),alt:data.Image.Title,title:data.Image.Title}]" #nav></ng-image-slider>
                 <a>
                     <div class="mask rgba-white-slight"></div>
                 </a>

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Feature } from '../models/project';
+import { MediaProviderService } from '../media-provider.service';
 
 @Component({
   selector: 'app-project-feature',
@@ -10,7 +11,7 @@ export class ProjectFeatureComponent implements OnInit {
 
   @Input() data: Feature;
 
-  constructor() {
+  constructor(public mediaProviderService: MediaProviderService) {
 
   }
 

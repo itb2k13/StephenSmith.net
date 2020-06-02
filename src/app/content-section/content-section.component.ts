@@ -5,6 +5,7 @@ import { ApiService } from '../api.service';
 import { BaseComponent } from '../base/base.component';
 import { AuthService } from '../auth.service';
 import { Reference } from '../models/project';
+import { MediaProviderService } from '../media-provider.service';
 
 @Component({
   selector: 'app-content-section',
@@ -17,8 +18,8 @@ export class ContentSectionComponent extends BaseComponent implements OnInit {
   section: string;
   contentpath: string;
 
-  constructor(private api: ApiService, authService: AuthService, private activatedRoute: ActivatedRoute) {
-    super(authService);
+  constructor(private api: ApiService, authService: AuthService, private activatedRoute: ActivatedRoute, private mediaProviderService: MediaProviderService) {
+    super(authService, mediaProviderService);
   }
 
   customTrackBy(index: number, obj: any): any {

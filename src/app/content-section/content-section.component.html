@@ -1,4 +1,4 @@
-<img *ngIf="data.BackgroundImage" class="bg-fixed min-vw-100 h-100 {{data.BackgroundImage.Class}}" src="{{data.BackgroundImage.Url}}" />
+<img *ngIf="data.BackgroundImage" class="bg-fixed min-vw-100 h-100 {{data.BackgroundImage.Class}}" src="{{mediaProvider.getUrl(data.BackgroundImage.Url)}}" />
 <mdb-card style="background-color: unset;">
     <div class="text-center text-white py-5 px-4 my-5">
         <div class="jumbotron jumbotron-fluid bg-shadow-05">
