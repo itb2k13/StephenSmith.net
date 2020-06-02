@@ -9,7 +9,7 @@ export class MediaProviderService {
   constructor() { }
 
   public getUrl(url: string) {
-    if (url.startsWith('/'))
+    if (url?.startsWith('/'))
       return Config.mediaBase + url;
     else
       return url;
