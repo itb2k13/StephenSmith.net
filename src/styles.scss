@@ -18,6 +18,14 @@ body {
     background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
+.bg-shadow-06 {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.bg-box-shadow {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+}
+
 .bg-fixed {
     position: fixed !important;
     top: 0;
@@ -76,7 +84,11 @@ body {
     color: #cdcdcd !important;
 }
 
-.text-alternate span:not(:last-child)::after {
+.text-alternate span:nth-child(even) {
+    color: #ababab !important;
+}
+
+.text-alternate span:not(:last-child):not(:empty)::after {
     content: ", ";
 }
 
