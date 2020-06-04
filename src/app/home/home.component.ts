@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private api: ApiService) {
     this.data.BackgroundImage = new Media();
+    this.data.Banner = new Media();
   }
 
   ngOnInit(): void {
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
     this.api.getContent('base', 'home')
       .subscribe((res: ContentSection) => {
         this.data = res;
+        this.data.Banner = this.data.Banner || new Media();
       }, err => { });
   }
 

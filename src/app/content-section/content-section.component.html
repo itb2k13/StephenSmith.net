@@ -1,34 +1,51 @@
 <img *ngIf="data.BackgroundImage" class="bg-fixed min-vw-100 h-100 {{data.BackgroundImage.Class}}" src="{{mediaProvider.getUrl(data.BackgroundImage.Url)}}" />
-<mdb-card style="background-color: unset;">
-    <div class="text-center text-white py-5 px-4 my-5">
-        <div class="jumbotron jumbotron-fluid bg-shadow-05">
-            <div class="container">
-                <h1 class="display-4">{{data.Title}}
-                    <a *ngIf="isAuthenticated()" [routerLink]='"."' fragment="edit">
-                        <mdb-icon icon="edit" class="far text-white"></mdb-icon>
-                    </a>
-                </h1>
 
-                <p class="lead">{{data.SubTitle}}</p>
+<!-- Jumbotron -->
+<div class="bg-cover h1-responsive text-center text-shadow white-text">
+    <div class="bg-banner" class="bg-banner position-absolute w-100 z-depth-5" [style.backgroundImage]="'url('+mediaProviderService.getUrl(data.Banner?.Url)+')'"></div>
+    <div class="bg-shadow-02 p-5">
 
-                <!--Projects section v.1-->
-                <section>
+        <!-- Title -->
+        <h2 class="card-title h2-responsive">{{data.Title}}
+            <a *ngIf="isAuthenticated() && data.Title" [routerLink]='"."' fragment="edit">
+                <mdb-icon icon="edit" class="far text-white"></mdb-icon>
+            </a>
+        </h2>
 
-                    <!--Section heading-->
-                    <h2 class="text-center h1 py-5">
-                        <strong>{{data.Heading}}</strong>
-                    </h2>
+        <!-- Subtitle -->
+        <p class="my-4 h6  ">{{data.SubTitle}}</p>
 
-                    <!--Section description-->
-                    <p class="grey-text pb-5 text-center">{{data.Description}}</p>
+        <p class="my-4 h3  font-weight-light">{{data.Heading}}</p>
 
-                    <app-content-tiles [data]="data"></app-content-tiles>
+        <!-- Grid row -->
+        <div class="row d-flex justify-content-center">
 
-                </section>
-                <!--/Projects section v.1-->
+            <!-- Grid column -->
+            <div class="col-xl-7 pb-2">
+
+                <p class="h5 font-weight-light">{{data.Description}}</p>
+
             </div>
+            <!-- Grid column -->
+
+        </div>
+
+        <!-- Grid row -->
+    </div>
+
+</div>
+<!-- Jumbotron -->
+
+<mdb-card style="background-color: unset;">
+
+    <div class="jumbotron jumbotron-fluid text-center text-white bg-shadow-05">
+        <div class="container p-2">
+
+            <app-content-tiles [data]="data"></app-content-tiles>
+
         </div>
     </div>
+
 </mdb-card>
 
 <div id='edit' *ngIf="isAuthenticated()" class="jumbotron jumbotron-fluid bg-shadow-05">
@@ -44,11 +61,13 @@
                             <input class="form-control col-4" type="text" [(ngModel)]="data.Title" placeholder="Title">
                             <input class="form-control col-4" type="text" [(ngModel)]="data.SubTitle" placeholder="Subtitle">
                             <input class="form-control col-4" type="text" [(ngModel)]="data.Heading" placeholder="Heading">
-                            <input class="form-control" type="text" [(ngModel)]="data.Description" placeholder="Description">
+                            <input class="form-control col-12" type="text" [(ngModel)]="data.Description" placeholder="Description">
                         </div>
                         <div *ngIf="data.BackgroundImage" class="form-inline">
                             <input class="form-control col-8" type="text" [(ngModel)]="data.BackgroundImage.Url" placeholder="Background Image">
                             <input class="form-control col-4" type="text" [(ngModel)]="data.BackgroundImage.Class" placeholder="Css Class(es)">
+                            <input class="form-control col-8" type="text" [(ngModel)]="data.Banner.Url" placeholder="Banner">
+                            <input class="form-control col-4" type="text" [(ngModel)]="data.Banner.Class" placeholder="Css Class(es)">
                         </div>
                         <button class="btn btn-primary" (click)="data.Projects = data.Projects || []; data.Projects.push({Title:'New Project', Icon: {}});">Add Project</button>
                         <button class="btn btn-primary" (click)="data.BackgroundImage = {};">Add Background</button>
@@ -106,13 +125,13 @@
                                                     <a>
                                                         <mdb-icon icon="times-circle" class="fas pr-1 red-text" (click)="o.References.splice(i,1);"></mdb-icon>
                                                     </a>
-                                                    <input class="form-control" type="text" [(ngModel)]="n.Title" placeholder="Title">
+                                                    <span>{{n.Title}}</span>
                                                 </mat-expansion-panel-header>
 
                                                 <div class="form-inline">
-
-                                                    <input class="form-control" type="text" [(ngModel)]="n.Url" placeholder="External url">
-                                                    <input class="form-control" type="text" [(ngModel)]="n.Link" placeholder="Internal link">
+                                                    <input class="form-control col-6" type="text" [(ngModel)]="n.Title" placeholder="Title">
+                                                    <input class="form-control col-6" type="text" [(ngModel)]="n.Link" placeholder="Internal link">
+                                                    <input class="form-control col-12" type="text" [(ngModel)]="n.Url" placeholder="External url">
                                                 </div>
                                                 <div class="form-inline" *ngIf="n.Icon">
                                                     <input class="form-control col-6" type="text" [(ngModel)]="n.Icon.Name" placeholder="Icon name">

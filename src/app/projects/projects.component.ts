@@ -17,6 +17,7 @@ export class ProjectsComponent implements OnInit {
 
   constructor(private api: ApiService, private activatedRoute: ActivatedRoute) {
     this.data.BackgroundImage = new Media();
+    this.data.Banner = new Media();
   }
 
   ngOnInit(): void {

@@ -42,6 +42,7 @@ export class Project {
 export class ContentSection {
   Path: string;
   BackgroundImage: Media;
+  Banner?: Media;
   Title: string;
   SubTitle: string;
   Heading: string;

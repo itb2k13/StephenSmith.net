@@ -17,6 +17,7 @@ export class ContentProviderComponent implements OnInit {
 
   constructor(private api: ApiService, private activatedRoute: ActivatedRoute) {
     this.data.BackgroundImage = new Media();
+    this.data.Banner = new Media();
   }
 
   ngOnInit(): void {
@@ -29,6 +30,7 @@ export class ContentProviderComponent implements OnInit {
     this.api.getContent(this.section, this.contentpath)
       .subscribe((res: ContentSection) => {
         this.data = res;
+        this.data.Banner = this.data.Banner || new Media();
         this.isLoadingResults = false;
       }, err => {
         this.isLoadingResults = false;

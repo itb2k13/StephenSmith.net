@@ -18,7 +18,7 @@ export class ContentSectionComponent extends BaseComponent implements OnInit {
   section: string;
   contentpath: string;
 
-  constructor(private api: ApiService, authService: AuthService, private activatedRoute: ActivatedRoute, private mediaProviderService: MediaProviderService) {
+  constructor(private api: ApiService, authService: AuthService, private activatedRoute: ActivatedRoute, public mediaProviderService: MediaProviderService) {
     super(authService, mediaProviderService);
   }
 

@@ -28,6 +28,12 @@ body {
     background-size: cover;
 }
 
+.bg-banner {
+    height: 500px;
+    z-index: -1;
+    background-position-y: -350px;
+}
+
 .blur-5px {
     filter: blur(5px) opacity(0.5);
 }
