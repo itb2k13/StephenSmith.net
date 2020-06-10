@@ -11,6 +11,12 @@
 
             <mdb-icon *ngIf="o.ShowIcon" icon="{{o.Icon.Name}}" [ngClass]="o.Icon.Group" class="fa-3x p-3 {{o.Icon.Color}} {{o.Icon.Group}}"></mdb-icon>
 
+            <!--External link-->
+            <a *ngIf="o.References && o.References[0].Url" href="{{o.References[0].Url}}" rel="noopener" target="_blank" mdbWavesEffect>
+                <div class="mask rgba-white-slight"></div>
+            </a>
+
+            <!--Internal link-->
             <a *ngIf="o.References && o.References[0].Link" [routerLink]="o.References[0].Link" mdbWavesEffect>
                 <div class="mask rgba-white-slight"></div>
             </a>
