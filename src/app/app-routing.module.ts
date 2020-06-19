@@ -36,6 +36,11 @@ const routes: Routes = [
     data: { section: 'projects', contentpath: 'commercial' }
   },
   {
+    path: 'commercial',
+    component: ContentProviderComponent,
+    data: { section: 'projects', contentpath: 'commercial' }
+  },
+  {
     path: 'projects/other',
     component: ContentProviderComponent,
     data: { section: 'projects', contentpath: 'other' }
