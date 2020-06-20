@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { Project, Feature, Media } from '../models/project';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
@@ -17,7 +18,11 @@ export class ProjectDetailsComponent implements OnInit {
   contentpath: string;
   projectTitle: string;
 
-  constructor(private api: ApiService, private activatedRoute: ActivatedRoute, public mediaProviderService: MediaProviderService) {
+  constructor(private api: ApiService,
+    private activatedRoute: ActivatedRoute,
+    public mediaProviderService: MediaProviderService,
+    private title: Title,
+    private meta: Meta) {
     this.data = new Project();
   }
 
@@ -41,6 +46,8 @@ export class ProjectDetailsComponent implements OnInit {
     this.api.getProjectDetail(this.section, this.contentpath, this.projectTitle)
       .subscribe((res: Project) => {
         this.data = res;
+        this.title.setTitle(`${this.data.Title} - ${this.data.SubTitle}`);
+        this.meta.updateTag({ name: 'description', content: this.data.Description });
         this.isLoadingResults = false;
       }, err => {
         this.isLoadingResults = false;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ApiService } from '../api.service';
 import { ContentSection, Media } from '../models/project';
 import { ActivatedRoute } from '@angular/router';
@@ -15,7 +16,11 @@ export class ContentProviderComponent implements OnInit {
   section: string;
   contentpath: string;
 
-  constructor(private api: ApiService, private activatedRoute: ActivatedRoute) {
+  constructor(
+    private api: ApiService,
+    private activatedRoute: ActivatedRoute,
+    private title: Title,
+    private meta: Meta) {
     this.data.BackgroundImage = new Media();
     this.data.Banner = new Media();
   }
@@ -31,6 +36,8 @@ export class ContentProviderComponent implements OnInit {
       .subscribe((res: ContentSection) => {
         this.data = res;
         this.data.Banner = this.data.Banner || new Media();
+        this.title.setTitle(`${this.data.Title} - ${this.data.SubTitle}`);
+        this.meta.updateTag({ name: 'description', content: this.data.Heading });
         this.isLoadingResults = false;
       }, err => {
         this.isLoadingResults = false;
